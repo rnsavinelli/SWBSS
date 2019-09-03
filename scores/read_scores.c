@@ -30,22 +30,22 @@ typedef struct jugador{
 
 int main (void)
 {
-	FILE *cfPtr;
-	jugador_t jugador;
-	
-	if((cfPtr = fopen("scores.dat", "r")) == NULL) {
-		printf("File could not be opened.\n");
-	}
-	
-	else {		
-		fread(&jugador, sizeof(jugador_t), 1, cfPtr);
+    FILE *cfPtr;
+    jugador_t jugador;
+    
+    if((cfPtr = fopen("scores.dat", "r")) == NULL) {
+        printf("File could not be opened.\n");
+    }
+    
+    else {        
+        fread(&jugador, sizeof(jugador_t), 1, cfPtr);
 
-		while (!feof(cfPtr)) {	
-			printf("%s %d\n", jugador.name, jugador.points);
-			fread(&jugador, sizeof(jugador_t), 1, cfPtr);
-		}
-	}
-	
-	fclose(cfPtr);
-	return 0;
+        while (!feof(cfPtr)) {    
+            printf("%s %d\n", jugador.name, jugador.points);
+            fread(&jugador, sizeof(jugador_t), 1, cfPtr);
+        }
+    }
+    
+    fclose(cfPtr);
+    return 0;
 }

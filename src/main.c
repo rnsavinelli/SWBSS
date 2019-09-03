@@ -26,23 +26,23 @@
 
 int main(void)
 {
-	app_t data;
+    app_t data;
 
-   	/* back-end initialization (allegro, keyboard, mouse, timer and creates the window) */
-	init_fullscreen_desktop();
+    /* back-end initialization (allegro, keyboard, mouse, timer and creates the window) */
+    init_fullscreen_desktop();
 
     /* game data initialization */
-	app_init(&data);
+    app_init(&data);
 
-	loop_set_start_callback(app_start);
-	loop_set_logic_callback(app_logic);
-	loop_set_draw_callback(app_draw);
+    loop_set_start_callback(app_start);
+    loop_set_logic_callback(app_logic);
+    loop_set_draw_callback(app_draw);
     
-	loop_handler(&data);
+    loop_handler(&data);
     
     /* frees used resources */
-	app_exit(&data);
+    app_exit(&data);
 
-	return 0;
+    return 0;
 }
 

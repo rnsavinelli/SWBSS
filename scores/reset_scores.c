@@ -31,23 +31,23 @@ typedef struct jugador{
 
 int main(void)
 {
-	int i;
-	jugador_t empty_player = {"empty", 0};
-	FILE *cfPtr;
-	
-	if ((cfPtr = fopen ("scores.dat", "w+")) == NULL) {
-		printf ("File could not be opened.\n");
-		return 1;
-	}
-	
-	else {
-		for (i = 0; i < JUGADORES; i++) {
-			fwrite (&empty_player, sizeof(jugador_t), 1, cfPtr);
-		}
+    int i;
+    jugador_t empty_player = {"empty", 0};
+    FILE *cfPtr;
+    
+    if ((cfPtr = fopen ("scores.dat", "w+")) == NULL) {
+        printf ("File could not be opened.\n");
+        return 1;
+    }
+    
+    else {
+        for (i = 0; i < JUGADORES; i++) {
+            fwrite (&empty_player, sizeof(jugador_t), 1, cfPtr);
+        }
 
-		fclose(cfPtr);	
-	}
-	
-	printf("New \"scores.dat\" file has been created with default values.\n");
-	return 0;
+        fclose(cfPtr);    
+    }
+    
+    printf("New \"scores.dat\" file has been created with default values.\n");
+    return 0;
 }
