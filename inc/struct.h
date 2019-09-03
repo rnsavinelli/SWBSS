@@ -26,14 +26,14 @@
 #include "al_handler.h"
 
 #define NUM_ASTEROIDS 4
-#define NUM_FIRE 20
-#define NUM_ENEMIES	14
-#define NUM_FILAS 5
+#define NUM_FIRE      20
+#define NUM_ENEMIES   14
+#define NUM_FILAS     5
 #define DEFAULT_SPEED 0.80
-#define FIRE_SPEED -13
+#define FIRE_SPEED    -13
 
-#define MAX_NAME_LEN 20
-#define PODIO 5
+#define MAX_NAME_LEN  20
+#define PODIO         5
 
 enum APP_FONTS {
     FONT_START,
@@ -43,7 +43,7 @@ enum APP_FONTS {
 enum APP_IMAGES {
     IMG_BACKGROUND,
     IMG_SPACESHIP,
-	IMG_ENEMY,
+    IMG_ENEMY,
     IMG_ASTEROID,
     MAX_IMAGES
 };
@@ -86,43 +86,43 @@ typedef struct score {
 typedef struct fires {
     float x;
     float y;
-	bool flag;
+    bool flag;
 } fires_t;
 
 typedef struct enemy {
-	float x;
-	float y;
-	bool flag;
+    float x;
+    float y;
+    bool flag;
 } enemy_t;
 
 typedef struct asteroid {
-	float x;
-	float y;
+    float x;
+    float y;
 } asteroid_t;
 
 typedef struct spaceship_coordinates {
-	float x;
-	float y;
+    float x;
+    float y;
 } coordinates_t;
 
 typedef struct gameplay_variables {
     float time;
-	int status;
-	int tolerance;
+    int status;
+    int tolerance;
     bool reset; /* if true enemies and fire get reseted */
     float velocidad;
 } gameplay_t;
 
 typedef struct app {
-    ALLEGRO_FONT * fonts[MAX_FONTS];
+    ALLEGRO_FONT   * fonts[MAX_FONTS];
     ALLEGRO_BITMAP * images[MAX_IMAGES];
     ALLEGRO_SAMPLE * sounds[MAX_SOUNDS];
-	
+    
     unsigned char menu;
 
     gameplay_t gameplay;
-	coordinates_t spaceship;
-	asteroid_t asteroide[NUM_ASTEROIDS];
+    coordinates_t spaceship;
+    asteroid_t asteroide[NUM_ASTEROIDS];
     enemy_t enemigo[NUM_ENEMIES * NUM_FILAS];
     score_t player;
     top_t best[PODIO];

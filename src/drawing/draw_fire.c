@@ -25,19 +25,19 @@
 #include "draw.h"
 
 void draw_fire(app_t *app_struct)
-{	
-	assert(app_struct);
-	
-	ALLEGRO_BITMAP *spaceship_img = app_struct->images[IMG_SPACESHIP];
+{    
+    assert(app_struct);
+    
+    ALLEGRO_BITMAP *spaceship_img = app_struct->images[IMG_SPACESHIP];
 
-	assert(spaceship_img);
+    assert(spaceship_img);
 
-	int spaceship_h = al_get_bitmap_height(spaceship_img);
+    int spaceship_h = al_get_bitmap_height(spaceship_img);
 
-	for(int i = 0; i < NUM_FIRE; i++) {
-		if ((app_struct->disparo[i]).flag) {
-			al_draw_filled_circle( (app_struct->disparo[i]).x + 1, (app_struct->disparo[i]).y - spaceship_h/2, 3, al_map_rgb(6, 188, 249));
-		}
-	}
+    for(int i = 0; i < NUM_FIRE; i++) {
+        if ((app_struct->disparo[i]).flag) {
+            al_draw_filled_circle( (app_struct->disparo[i]).x + 1, (app_struct->disparo[i]).y - spaceship_h/2, 3, al_map_rgb(6, 188, 249));
+        }
+    }
 }
 

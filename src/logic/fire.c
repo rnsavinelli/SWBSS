@@ -25,32 +25,31 @@
 
 void generate_fire (app_t *app_struct)
 {
-	assert(app_struct);
+    assert(app_struct);
 
-	for (int i = 0; i < NUM_FIRE; i++)
-	{
-		if(!(app_struct->disparo[i]).flag) {
-			(app_struct->disparo[i]).x = (app_struct->spaceship).x;
-			(app_struct->disparo[i]).y = (app_struct->spaceship).y;
-			(app_struct->disparo[i]).flag = true;
-			break;
-		}
-	}
+    for (int i = 0; i < NUM_FIRE; i++) {
+        if(!(app_struct->disparo[i]).flag) {
+            (app_struct->disparo[i]).x = (app_struct->spaceship).x;
+            (app_struct->disparo[i]).y = (app_struct->spaceship).y;
+            (app_struct->disparo[i]).flag = true;
+            break;
+        }
+    }
 }
 
 void move_fire(app_t *app_struct)
 {
-	assert(app_struct);
+    assert(app_struct);
 
-	int desplazamiento = FIRE_SPEED;
-	
-	for (int i = 0; i < NUM_FIRE; i++) {
-		if((app_struct->disparo[i]).flag) {
-			(app_struct->disparo[i]).y += desplazamiento;
+    int desplazamiento = FIRE_SPEED;
+    
+    for (int i = 0; i < NUM_FIRE; i++) {
+        if((app_struct->disparo[i]).flag) {
+            (app_struct->disparo[i]).y += desplazamiento;
 
-			if((app_struct->disparo[i]).y < 0) {
-				(app_struct->disparo[i]).flag = false;
-			}
-		}
-	}
+            if((app_struct->disparo[i]).y < 0) {
+                (app_struct->disparo[i]).flag = false;
+            }
+        }
+    }
 }

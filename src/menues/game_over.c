@@ -26,29 +26,29 @@
 
 bool logic_game_over(int window_width, int window_height, app_t *app_struct)
 {
-	assert(app_struct);
+    assert(app_struct);
 
     unsigned char *menu;
-	
-	assert(app_struct);
+    
+    assert(app_struct);
 
     menu = &(app_struct->menu);
 
-	assert(menu);
+    assert(menu);
 
-	al_stop_samples();
-	 
+    al_stop_samples();
+     
     if(handler_key(ALLEGRO_KEY_TAB)) {
         app_start(window_width, window_height, app_struct);
         (app_struct->gameplay).reset = true;
         (*menu) = MENU_GAME_START;
     }
-	
-	if(handler_key(ALLEGRO_KEY_ESCAPE)) {
+    
+    if(handler_key(ALLEGRO_KEY_ESCAPE)) {
         (*menu) = MENU_EXIT;
     }
     
-   	/* prints name */
+    /* prints name */
     if (handler_key(ALLEGRO_KEY_S)) {
         strcpy((app_struct->player).name, "");
         set_string_source((app_struct->player).name, MAX_NAME_LEN);
@@ -61,17 +61,17 @@ bool logic_game_over(int window_width, int window_height, app_t *app_struct)
 
 bool draw_game_over( int window_width, int window_height, app_t *app_struct)
 {
-	assert(app_struct);
-	
-	int *score = &(app_struct->player).points;
+    assert(app_struct);
+    
+    int *score = &(app_struct->player).points;
 
     ALLEGRO_FONT *font  = app_struct->fonts[FONT_START];
-    	
-	assert(font);
+        
+    assert(font);
 
-	al_clear_to_color(al_map_rgb(12,12,12));
+    al_clear_to_color(al_map_rgb(12,12,12));
 
-	al_draw_text(font, al_map_rgb(255, 0, 0), 
+    al_draw_text(font, al_map_rgb(255, 0, 0), 
                  window_width/2, window_height/3 - al_get_font_line_height(font)*3,  
                  ALLEGRO_ALIGN_CENTER, "GAME OVER!");
                  
@@ -90,6 +90,6 @@ bool draw_game_over( int window_width, int window_height, app_t *app_struct)
     al_draw_text(font, al_map_rgb(255, 255, 255), 
                  window_width/2, window_height/2 + al_get_font_line_height(font)*5, 
                  ALLEGRO_ALIGN_CENTER, "Press ESCAPE to exit");
-	
-	return true;
+    
+    return true;
 }

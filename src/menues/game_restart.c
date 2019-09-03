@@ -26,35 +26,35 @@
 
 bool logic_game_restart(int window_width, int window_height, app_t *app_struct)
 {
-	assert(app_struct);
-	
+    assert(app_struct);
+    
     unsigned char *menu;
     
     al_stop_samples();
     menu = &(app_struct->menu);
     
-	assert(menu);
+    assert(menu);
    
     if(handler_key(ALLEGRO_KEY_ENTER)) {
-	    app_restart(window_width, window_height, app_struct);
-	    (app_struct->gameplay).reset = true;
+        app_restart(window_width, window_height, app_struct);
+        (app_struct->gameplay).reset = true;
         (*menu) = MENU_GAME_START;
     }
     
-    	return true;
+    return true;
 }
 
 bool draw_game_restart(int window_width, int window_height, app_t *app_struct)
 {
     ALLEGRO_FONT *font;
 
-	assert(app_struct);
+    assert(app_struct);
 
     font = app_struct->fonts[FONT_START];
 
-	assert(font);
-	
-	al_clear_to_color(al_map_rgb(12,12,12));
+    assert(font);
+    
+    al_clear_to_color(al_map_rgb(12,12,12));
 
     al_draw_text(font, al_map_rgb(255, 0, 0), 
                  window_width/2, window_height/3 - al_get_font_line_height(font),  
@@ -67,7 +67,7 @@ bool draw_game_restart(int window_width, int window_height, app_t *app_struct)
     al_draw_textf(font, al_map_rgb(255, 255, 255), 
                  window_width/2, window_height/2 - al_get_font_line_height(font),
                  ALLEGRO_ALIGN_CENTER, "LIVES: %d", (app_struct->player).life);
-        	         
+                     
     al_draw_text(font, al_map_rgb(215, 215, 215), 
                  window_width/2, (window_height/3)*2 - al_get_font_line_height(font), 
                  ALLEGRO_ALIGN_CENTER, "Press ENTER when you are ready");

@@ -41,7 +41,7 @@ void draw_spaceship(unsigned char sector, app_t *app_struct)
     switch(sector)
     {
         case IMG_SPACESHIP_IDLE:
-	    al_draw_bitmap_region(spaceship_img, 0, 0, spaceship_w, spaceship_h, x - spaceship_w/2, y - spaceship_h/2, 0);
+            al_draw_bitmap_region(spaceship_img, 0, 0, spaceship_w, spaceship_h, x - spaceship_w/2, y - spaceship_h/2, 0);
             break;
 
         case IMG_SPACESHIP_LEFT:

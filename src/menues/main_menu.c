@@ -27,13 +27,13 @@
 
 bool logic_main_menu(int window_width, int window_height, app_t *app_struct)
 {
-	unsigned char *menu;
+    unsigned char *menu;
     
-	assert(app_struct);
+    assert(app_struct);
 
     menu = &(app_struct->menu);
     
-	assert(menu);
+    assert(menu);
  
     if(handler_key(ALLEGRO_KEY_ENTER)) {
         app_start(window_width, window_height, app_struct);
@@ -41,8 +41,8 @@ bool logic_main_menu(int window_width, int window_height, app_t *app_struct)
     }
     
     if(handler_key(ALLEGRO_KEY_ESCAPE)) {
-       	(*menu) = MENU_EXIT;
-       	return false;
+        (*menu) = MENU_EXIT;
+        return false;
     }
     
     return true;
@@ -52,16 +52,16 @@ bool draw_main_menu(int window_width, int window_height, app_t *app_struct)
 {
     ALLEGRO_FONT *font;
 
-	assert(app_struct);
+    assert(app_struct);
 
     font = app_struct->fonts[FONT_START];
 
-	assert(font);
-	
-	al_clear_to_color(al_map_rgb(12,12,12));
+    assert(font);
     
-	al_draw_text(font, al_map_rgb(255, 215, 0), 
-		        window_width/2, window_height/4 - al_get_font_line_height(font),  
+    al_clear_to_color(al_map_rgb(12,12,12));
+    
+    al_draw_text(font, al_map_rgb(255, 215, 0), 
+                window_width/2, window_height/4 - al_get_font_line_height(font),  
                 ALLEGRO_ALIGN_CENTER, "Simple Wave Based Space Shooter (SWBSS)");
                  
     al_draw_text(font, al_map_rgb(255, 255, 255), 
@@ -92,7 +92,7 @@ bool draw_main_menu(int window_width, int window_height, app_t *app_struct)
                 window_width/2, (window_height/4)*3 + al_get_font_line_height(font)*4,
                 ALLEGRO_ALIGN_CENTER, "Fork of GNASS by Savinelli Roberto Nicolás");
 
-   	al_draw_text(font, al_map_rgb(255, 255, 255), 
+       al_draw_text(font, al_map_rgb(255, 255, 255), 
                 window_width/2, (window_height/4)*3 + al_get_font_line_height(font)*6,
                 ALLEGRO_ALIGN_CENTER, "GNASS was originally developed by Savinelli Roberto Nicolás, Juan Ignacio Piccardi, José Daniel Taverso");
                  

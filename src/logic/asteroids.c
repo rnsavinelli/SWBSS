@@ -25,24 +25,24 @@
 
 void generate_asteroid(int window_width, int window_height, app_t *app_struct)
 {
-	assert(app_struct);
+    assert(app_struct);
 
     ALLEGRO_BITMAP *asteroid = app_struct->images[IMG_ASTEROID];
 
-	assert(asteroid);
-	
-    	float desplazamiento = 2;
-    	int i;
+    assert(asteroid);
+    
+    float desplazamiento = 2;
+    int i;
 
-    	int asteroid_w = al_get_bitmap_width(asteroid);
-    	int asteroid_h = al_get_bitmap_height(asteroid);
+    int asteroid_w = al_get_bitmap_width(asteroid);
+    int asteroid_h = al_get_bitmap_height(asteroid);
 
-    	for(i = 0; i < NUM_ASTEROIDS; i++) {
-        	(app_struct->asteroide[i]).y += desplazamiento;
+    for(i = 0; i < NUM_ASTEROIDS; i++) {
+        (app_struct->asteroide[i]).y += desplazamiento;
 
-        	if( (app_struct->asteroide[i]).y > window_height + asteroid_w) {
-          		(app_struct->asteroide[i]).x = rand() % (window_width/2 - asteroid_w) + (window_width/4) + asteroid_w/2;
-            		(app_struct->asteroide[i]).y = - asteroid_h;
-        	}
-	}
+        if( (app_struct->asteroide[i]).y > window_height + asteroid_w) {
+            (app_struct->asteroide[i]).x = rand() % (window_width/2 - asteroid_w) + (window_width/4) + asteroid_w/2;
+            (app_struct->asteroide[i]).y = - asteroid_h;
+        }
+    }
 }

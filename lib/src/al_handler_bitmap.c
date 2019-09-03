@@ -26,15 +26,15 @@
 
 ALLEGRO_BITMAP *load_img(char *img_filename)
 {
-	ALLEGRO_BITMAP *image = NULL;
+    ALLEGRO_BITMAP *image = NULL;
 
-	assert(img_filename);
+    assert(img_filename);
 
-	image = al_load_bitmap(img_filename);
+    image = al_load_bitmap(img_filename);
 
-	if(image != 0) {
-		al_convert_mask_to_alpha(image, al_map_rgb(255, 0, 255));
-	}
+    if(image != 0) {
+        al_convert_mask_to_alpha(image, al_map_rgb(255, 0, 255));
+    }
 
-	return image;
+    return image;
 }

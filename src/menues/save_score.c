@@ -25,16 +25,16 @@
 #include "save_score.h"
 
 int save_score(score_t* player, app_t *app_struct)
-{	
-	assert(app_struct);
+{    
+    assert(app_struct);
 
     FILE *fd;
     top_t *buffer = NULL;
     int i, tam = 0;
     
     if ((fd = fopen("./scores/scores.dat", "a")) == NULL) {
-		perror("Failed to read scores.dat file");
-		return -1;
+        perror("Failed to read scores.dat file");
+        return -1;
     }
 
     strcpy( (player->last_play).top_name , player->name );
@@ -46,20 +46,20 @@ int save_score(score_t* player, app_t *app_struct)
     
     /* generates dynamic vector */
     if (generar (&buffer, fd, &tam) == -1) {
-		return -1;
-	}
-	
+        return -1;
+    }
+    
     ordenar(&buffer, tam);
 
     /* prints first PODIO positions */
-	for(i = 0; i < PODIO; i++) {
+    for(i = 0; i < PODIO; i++) {
         strcpy( (app_struct->best[i]).top_name, (buffer+i)->top_name );
         (app_struct->best[i]).top_points = (buffer+i)->top_points;
     }
 
-	free(buffer);
-	
-   	return 0;
+    free(buffer);
+    
+       return 0;
 }
 
 /* function to generate the dynamic vector */
@@ -68,61 +68,61 @@ int generar(top_t ** ref, FILE *fd, int * t)
     top_t buffer;
     
     if ((fd = fopen("./scores/scores.dat", "r")) == NULL) {
-		perror("Failed to read scores.dat file");
-		return -1;
+        perror("Failed to read scores.dat file");
+        return -1;
     }
     
-	rewind(fd);
+    rewind(fd);
     fread(&buffer, sizeof(top_t), 1, fd);
     
-	while (!feof(fd)) {    
-		(*t)++;
+    while (!feof(fd)) {    
+        (*t)++;
 
-		if ((*ref)== NULL) {
-			if((*ref = (top_t*) malloc (sizeof (top_t))) == NULL) {
-				perror("There was an error allocating memory");
-				return -1;
-			}
+        if ((*ref)== NULL) {
+            if((*ref = (top_t*) malloc (sizeof (top_t))) == NULL) {
+                perror("There was an error allocating memory");
+                return -1;
+            }
 
-			strcpy ( (*ref)->top_name , buffer.top_name);
-			(*ref)->top_points = buffer.top_points;
-		}
+            strcpy ( (*ref)->top_name , buffer.top_name);
+            (*ref)->top_points = buffer.top_points;
+        }
     
-		else {	
-			if((*ref = (top_t*) realloc ((*ref), (*t) * sizeof(top_t))) == NULL) {
-				perror("There was an error allocating memory");
-				return -1;
-			}
-			
-			strcpy ( (*ref + (*t) - 1)->top_name , buffer.top_name);
-			(*ref + (*t) - 1)->top_points = buffer.top_points;
-		}
+        else {    
+            if((*ref = (top_t*) realloc ((*ref), (*t) * sizeof(top_t))) == NULL) {
+                perror("There was an error allocating memory");
+                return -1;
+            }
+            
+            strcpy ( (*ref + (*t) - 1)->top_name , buffer.top_name);
+            (*ref + (*t) - 1)->top_points = buffer.top_points;
+        }
     
-    	fread(&buffer, sizeof(top_t), 1, fd);
-	}
+        fread(&buffer, sizeof(top_t), 1, fd);
+    }
     
-	fclose(fd);
+    fclose(fd);
     
-	return 0;
+    return 0;
 }
 
 void ordenar (top_t **ref, int tam)
 {
-    	top_t aux;
-    	int i, j;
+        top_t aux;
+        int i, j;
 
-    	for (i = 0; i < tam; i++) {
-        	for(j = 0; j < tam-1; j++) {
-            		if (((*ref+j)->top_points) < ((*ref+j+1)->top_points)) {
-                		strcpy(aux.top_name, (*ref+j)->top_name);
-                		aux.top_points = (*ref+j)->top_points;
+        for (i = 0; i < tam; i++) {
+            for(j = 0; j < tam-1; j++) {
+                    if (((*ref+j)->top_points) < ((*ref+j+1)->top_points)) {
+                        strcpy(aux.top_name, (*ref+j)->top_name);
+                        aux.top_points = (*ref+j)->top_points;
           
-                		strcpy ((*ref+j)->top_name, (*ref+j+1)->top_name);
-                		(*ref+j)->top_points = (*ref+j+1)->top_points;
+                        strcpy ((*ref+j)->top_name, (*ref+j+1)->top_name);
+                        (*ref+j)->top_points = (*ref+j+1)->top_points;
                 
-                		strcpy ((*ref+j+1)->top_name, aux.top_name);
-                		(*ref+j+1)->top_points = aux.top_points;
-            		}
-        	}
-    	}
+                        strcpy ((*ref+j+1)->top_name, aux.top_name);
+                        (*ref+j+1)->top_points = aux.top_points;
+                    }
+            }
+        }
 }

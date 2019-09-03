@@ -38,14 +38,14 @@ void draw_enemy(app_t *app_struct)
     int enemy_w = al_get_bitmap_width(enemy);
     int enemy_h = al_get_bitmap_height(enemy);
 
-	for(int j = 0; j < NUM_FILAS; j++) {
-		for(int i = 0; i < NUM_ENEMIES; i++) {
-			if((app_struct->enemigo[(NUM_ENEMIES * j) + i]).flag) {
-				enemy_x = app_struct->enemigo[(NUM_ENEMIES * j) + i].x;
-				enemy_y = app_struct->enemigo[(NUM_ENEMIES * j) + i].y;
-			
-				al_draw_bitmap_region(  enemy, 0, 0, enemy_w, enemy_h, enemy_x - enemy_w/2, enemy_y - enemy_h/2, 0);
-			}
-		}
-	}
+    for(int j = 0; j < NUM_FILAS; j++) {
+        for(int i = 0; i < NUM_ENEMIES; i++) {
+            if((app_struct->enemigo[(NUM_ENEMIES * j) + i]).flag) {
+                enemy_x = app_struct->enemigo[(NUM_ENEMIES * j) + i].x;
+                enemy_y = app_struct->enemigo[(NUM_ENEMIES * j) + i].y;
+            
+                al_draw_bitmap_region(  enemy, 0, 0, enemy_w, enemy_h, enemy_x - enemy_w/2, enemy_y - enemy_h/2, 0);
+            }
+        }
+    }
 }

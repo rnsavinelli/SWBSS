@@ -31,8 +31,8 @@ bool collision_all (int window_width, int window_height, app_t *app_struct);
 
 void movimiento_spaceship (int window_width, int window_height, app_t *app_struct);
 void generate_asteroid (int window_width, int window_height, app_t *app_struct);
-void generate_enemy	(int window_width, int window_height, app_t *app_struct);
-void move_enemy	(int window_width, int window_height, app_t *app_struct);
+void generate_enemy    (int window_width, int window_height, app_t *app_struct);
+void move_enemy    (int window_width, int window_height, app_t *app_struct);
 void generate_fire (app_t *app_struct);
 void move_fire (app_t *app_struct);
 void reset_game (app_t *app_struct);

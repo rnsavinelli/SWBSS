@@ -28,12 +28,12 @@
 
 ALLEGRO_SAMPLE * load_sound(const char * audio_filename, int simultaneous_instances)
 {
-	global.num_sounds += simultaneous_instances;
-	
-	return al_load_sample(audio_filename);
+    global.num_sounds += simultaneous_instances;
+    
+    return al_load_sample(audio_filename);
 }
 
 void play_sound(ALLEGRO_SAMPLE * sample, ALLEGRO_PLAYMODE playmode)
 {
-	al_play_sample(sample, 1, 0, 1, playmode, NULL);
+    al_play_sample(sample, 1, 0, 1, playmode, NULL);
 }

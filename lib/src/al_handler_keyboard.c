@@ -27,15 +27,15 @@
 
 bool handler_key(int keycode)
 {
-	assert(keycode < ALLEGRO_KEY_MAX);
+    assert(keycode < ALLEGRO_KEY_MAX);
 
-	return global.key[keycode];
+    return global.key[keycode];
 }
 
 void set_string_source(char *string_source, int string_len)
 {
-	assert(string_source && string_len > 0);
+    assert(string_source && string_len > 0);
 
     global.string_src = string_source;
-	global.string_len = string_len;
+    global.string_len = string_len;
 }
