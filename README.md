@@ -4,10 +4,12 @@ SWBSS is a forked  version of GNASS (the acronym stands for GNASS is not another
 
 A lot of polish either on the handler side and the game side were made to release this version since it had a lot of bugs and little problems. Some of this problems still remain (like: if you run this game in HDPI all the bitmaps look really small) but can be solved in the future.
 
-### YouTube Gameplay
+### Gameplay
+
+YouTube: https://www.youtube.com/watch?v=YEgkpkBWMQY
 
 <a href="https://www.youtube.com/embed/YEgkpkBWMQY" target="_blank">
-<img src="http://img.youtube.com/vi/YEgkpkBWMQY/0.jpg" width="280" border="2" /></a>
+<img src="http://img.youtube.com/vi/YEgkpkBWMQY/0.jpg" width="240" border="2" /></a>
 
 ## Dependecies/Requisites
 
