@@ -11,7 +11,6 @@ A lot of polish either on the handler side and the game side were made to releas
 
 ## Dependecies/Requisites
 
-<iframe width="851" height="480" src="https://www.youtube.com/embed/YEgkpkBWMQY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ### Allegro 5.2 or newer is needed
 
 For general installation information visit [allegro download webpage](https://liballeg.org/download.html).
