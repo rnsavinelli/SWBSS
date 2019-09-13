@@ -94,7 +94,7 @@ bool draw_main_menu(int window_width, int window_height, app_t *app_struct)
 
        al_draw_text(font, al_map_rgb(255, 255, 255), 
                 window_width/2, (window_height/4)*3 + al_get_font_line_height(font)*6,
-                ALLEGRO_ALIGN_CENTER, "GNASS was originally developed by Savinelli Roberto Nicolás, Juan Ignacio Piccardi, José Daniel Taverso");
+                ALLEGRO_ALIGN_CENTER, "GNASS was originally developed by Piccardi Juan Ignacio, Savinelli Roberto Nicolás, Taverso José Daniel");
                  
     return true;
 }
