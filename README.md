@@ -1,4 +1,4 @@
-# Simple Wave Based Space Shooter
+# Simple Wave Based Space Shooter (ARCHIVED)
 
 SWBSS is a forked  version of GNASS (the acronym stands for GNASS is not another space shooter) aimed to improve it, clean the code and create a better game out of it. GNASS was a freshmen year university project coded by Savinelli Roberto Nicolás, Juan Ignacio Piccardi, José Daniel Taverso.
 
